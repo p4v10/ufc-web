@@ -19,7 +19,6 @@ This dataset is imported [Kaggle](https://www.kaggle.com/rajeevw/ufcdata). Coint
 """)
 
 
-st.image('img/img2.png', width=650, height=130)
-data =
+st.image('img/img2.png', width=695)
 
 st.multiselect('Chose the charts that you are interested in', options=['dasda','asdasd','dasdasd','adsad','dasdas','dasdasd'])
