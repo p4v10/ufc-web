@@ -136,7 +136,7 @@ def back_multi(option):
         elif x == 4:
             st.pyplot(fig4)
         elif x == 5:
-            st.pyplot(fig5)
+            plt.show(fig5)
         elif x == 6:
             st.pyplot(fig6)
 
