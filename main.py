@@ -25,18 +25,12 @@ choices = {1: 'Events per Year',
 2: 'Events by Country',
 3: 'Fighters Divisions',
 4: 'Fight Win By',
-5: 'Result by Division',
 6: 'Men vs Women Distribution '}
 
 def format_func(option):
     return choices[option]
 
-
-
 option = st.multiselect('Chose the charts that you are interested in', options=list(choices.keys()), format_func=format_func)
-
-
-
 
 
 # Ufc events per year
@@ -60,14 +54,6 @@ plt.ylabel('Quantity of fights')
 plt.title('UFC Events Per Year')
 
 
-
-
-
-
-
-
-
-
 #Events by country
 fig2 = plt.figure(figsize=(16,8))
 bar = sns.countplot(df['country'], palette='magma')
@@ -82,13 +68,11 @@ for p in ax.patches:
 plt.title('Event by Country')
 
 
-
 #Divisions
 fig3 = plt.figure(figsize=(16,8))
 sns.countplot(y=df['weight_class'],palette='magma')
 sns.set(style='white')
 plt.title('Fighters Divisions')
-
 
 
 #by fight win
@@ -98,14 +82,6 @@ fig4 = plt.figure(figsize=(16,8))
 plt.title('UFC Fight Win By')
 sns.barplot(x=values,y=labels,palette='magma')
 
-
-#outcome by division
-bar = df.groupby(['weight_class', 'win_by']).size().reset_index().pivot(columns='win_by', index='weight_class', values=0)
-fig5 = bar.plot(kind='barh', stacked=True, figsize=(16,8))
-plt.legend(bbox_to_anchor=(1.23, 0.99), loc=1, borderaxespad=0.)
-plt.title('UFC Fight Outcome by Division')
-plt.ylabel('Division')
-st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
 #men & women fights
@@ -123,8 +99,7 @@ plt.title('Men vs Women')
 ax3.axis('equal')
 
 
-
-st.write(option)
+#Charts function
 def back_multi(option):
     for x in option:
         if x == 1:
@@ -135,8 +110,6 @@ def back_multi(option):
             st.pyplot(fig3)
         elif x == 4:
             st.pyplot(fig4)
-        elif x == 5:
-            plt.show(fig5)
         elif x == 6:
             st.pyplot(fig6)
 
