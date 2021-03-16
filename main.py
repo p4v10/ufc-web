@@ -11,11 +11,11 @@ from sklearn.pipeline import Pipeline
 st.set_page_config(page_title='UFC')
 
 st.write("""
-### Predicting who win the fight
+### EDA on UFC dataset
 """)
 
 st.write("""
-In this project we are going to use `Random Forest` to predict the winner of the fight.
+In this project we are going to explore UFC dataset.
 """)
 
 st.write("""
@@ -117,8 +117,3 @@ def back_multi(option):
             st.pyplot(fig6)
 
 back_multi(option)
-
-
-filename_rf = 'model/ufc_model.sav'
-rf_model = pickle.load(open(filename_rf, 'rb'))
-pred_df = pd.read_csv('data/data.csv')
